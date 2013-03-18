@@ -3,7 +3,7 @@
 $PluginInfo['CategoryBasedNewDiscussionButtonText'] = array(
 	'Name' => 'Category based "New Discussion" button text',
 	'Description' => 'Customize text of the "New Discussion" button - for each category.',
-	'Version' => '0.1',
+	'Version' => '0.1.1',
 	'RequiredApplications' => array('Vanilla' => '2.1a1'),
 	'RequiredTheme' => FALSE,
 	'RequiredPlugins' => FALSE,
@@ -81,11 +81,12 @@ class CategoryBasedNewButtonTextPlugin implements Gdn_IPlugin {
   private static function setButtonText($Cat){//Category object
     $CatName = $Cat->Name;
     if(!$CatName){ $CatName = $Cat["Name"];}//if $Cat is an array
+    $CatName = self::normalizeName($CatName);
     $CustomText = C('Plugins.CategoryBasedNewButtonText.'.$CatName, '');
     if(strcmp($CustomText,'') != 0) {
       Gdn::Locale()->SetTranslation(
 				    'Start a New Discussion', 
-				    C('Plugins.CategoryBasedNewButtonText.'.self::normalizeName($CatName), '')
+				    $CustomText
 				    );
     }
   }
