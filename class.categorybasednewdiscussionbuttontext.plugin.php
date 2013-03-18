@@ -1,6 +1,6 @@
 <?php if (!defined('APPLICATION')) exit();
 
-$PluginInfo['CategoryBasedNewButtonText'] = array(
+$PluginInfo['CategoryBasedNewDiscussionButtonText'] = array(
 	'Name' => 'Category based "New Discussion" button text',
 	'Description' => 'Customize text of the "New Discussion" button - for each category.',
 	'Version' => '0.1',
